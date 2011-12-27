@@ -1,10 +1,6 @@
 #include <GeoIP.h>
-
-char *lookup_real(char *ip) {
-	GeoIP * gi;
-	gi = GeoIP_new(GEOIP_MEMORY_CACHE);
+char *lookup_real(char *ip, const GeoIP *gi) {
 	const char * result;
-	result = GeoIP_country_code_by_name(gi, ip);
-	GeoIP_delete(gi);
+	result = GeoIP_country_code_by_name((GeoIP *)gi, ip);
 	return (char *)result;
 }
