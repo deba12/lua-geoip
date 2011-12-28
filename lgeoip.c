@@ -3,7 +3,7 @@
 #include <GeoIP.h>
 #include "lauxlib.h"
 
-const GeoIP * gi;
+GeoIP * gi;
 
 static int lookup(lua_State *L) {
 	size_t l;
